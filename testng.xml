@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite basico carga" verbose="1">
+    <!-- El siguiente parametro se pasa a todos los tests de la SUITE -->
+    <parameter name="Rufineta" value="Rufi" />
+    <test name="Crear programaciones">
+        <!-- parametro solo para los tests -->
+        <parameter name="prog-count" value="10" />
+        <classes>
+            <class name="TestNG.TestNGTestNodo">
+                <!--<methods>
+                    <include name="addMuchasProgramaciones" />
+                </methods>-->
+            </class>
+        </classes>
+    </test>
+</suite>

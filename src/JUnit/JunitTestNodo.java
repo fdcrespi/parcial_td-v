@@ -24,11 +24,13 @@ public class JunitTestNodo {
     }
 
     @Test
+    @RepeatedTest(value=5)
     @DisplayName(value = "Carga mayor a cero")
     void test_cargaPositiva() {
-        //nodo_prueba.setG(-1);
+        nodo_prueba.setG((float) Math.random()*100);
         Assertions.assertTrue(nodo_prueba.getG() > 0);
-        //nodo_prueba.setG(100);
+       // System.out.println("Valores Random ==> " + nodo_prueba.getG());
+        nodo_prueba.setG(100);
     }
 
     @Test
