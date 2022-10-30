@@ -25,7 +25,7 @@ public class JunitTestArco {
     }
 
     @BeforeEach
-    void setUp() throws Exception {
+    void setUp() {
         System.out.println("TestArco --> set up");
     }
 
@@ -72,21 +72,22 @@ public class JunitTestArco {
         Assertions.assertNotSame(arco_prueba.getI(), arco_prueba.getJ());
     }
 
-    /*@Test
+    @Test
     @DisplayName(value="Cambio de extremos")
-    void test_CambioExtremos() throws energiaNegativaException {
+    void test_CambioExtremos() {
         Nodo nodo_prueba = new Nodo(4, 85);
-        Arco nuevo_arco = new Arco(arco_prueba.getI(), nodo_prueba, 60);
+        Arco original = arco_prueba;
         grafo.agregarVertice(nodo_prueba);
-        grafo.agregarArco(nuevo_arco);
-        grafo.borrarArco(arco_prueba);
-        arco_prueba.setExtremos(arco_prueba.getI(), nodo_prueba, 80);
+        grafo.borrarArco(original);
+        original.setExtremos(original.getI(), nodo_prueba, 80);
+        grafo.agregarArco(original);
         test_existenVertices();
-        Assertions.assertTrue(grafo.existeArco(arco_prueba));
-    }*/
+        Assertions.assertTrue(grafo.existeArco(original));
+        Assertions.assertSame(original.getJ(), nodo_prueba);
+    }
 
     @AfterEach
-    void tearDown() throws Exception {
+    void tearDown() {
         System.out.println("TestArco --> tear down");
         //arco_prueba.setW(50);
     }
