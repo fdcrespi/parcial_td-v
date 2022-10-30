@@ -63,7 +63,6 @@ public class GrafoDirigido {
 		return vertices.containsKey(origen) && vertices.get(origen).contains(arco);
 	}
 
-
 	public int cantidadVertices() {
 		return vertices.size();
 	}

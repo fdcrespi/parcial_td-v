@@ -36,7 +36,7 @@ public class JunitTestNodo {
     void test_nodoRepetido(){
         //grafo_prueba.agregarVertice(nodo_prueba);
         if (grafo_prueba.contieneVertice(nodo_prueba)){
-            fail();
+            fail("El nodo esta repetido");
         }
     }
 
