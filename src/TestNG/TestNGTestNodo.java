@@ -8,10 +8,12 @@ import org.testng.annotations.*;
 public class TestNGTestNodo {
 
     //@TODO Queda pendiente SUITE
+    static GrafoDirigido grafo_prueba;
 
     @BeforeTest
     public void beforeTest(){
         System.out.println("TestNodo ==> Before Test");
+        grafo_prueba = new GrafoDirigido();
     }
 
     @BeforeClass
@@ -31,6 +33,13 @@ public class TestNGTestNodo {
         };
     }
 
+    @DataProvider()
+    public Object[][] grafoPrueba(){
+        return new Object[][] {
+                new Object[] { new GrafoDirigido() }
+        };
+    }
+
     @Test(description = "Carga mayor a cero", dataProvider = "nodoPrueba", invocationCount = 5 )
     void test_cargaPositiva(Nodo n) {
         int valor = 0;
@@ -41,27 +50,27 @@ public class TestNGTestNodo {
         n.setG(100);
     }
 
- /*   @Test(description ="Nodo repetido", dataProvider = "nodoPrueba")
+   @Test(description ="Nodo repetido", dataProvider = "nodoPrueba")
     void test_nodoRepetido(Nodo n){
-        grafo.agregarVertice(n);
-        if (grafo.contieneVertice(n)){
-
+        //grafo_prueba.agregarVertice(n);
+        if (grafo_prueba.contieneVertice(n)){
+            Assert.fail("nodo repetido");
         }
     }
 
-    @Test(description ="Nodo es igual a otro")
-    void test_getNodo() {
+    @Test(description ="Nodo es igual a otro", dataProvider = "nodoPrueba")
+    void test_getNodo(Nodo n) {
         // tiene en cuenta solo el id
         Nodo nodo_tmp = new Nodo(1, 100);
-        Assertions.assertEquals(nodo_tmp, nodo_prueba);
+        Assert.assertEquals(nodo_tmp, n);
     }
 
-    @Test(description ="Valores del nodo")
-    void test_ValoresNodo(){
-        //nodo_prueba.setG(100.1f);
-        Assertions.assertEquals(nodo_prueba.getId(), 1);
-        Assertions.assertEquals(nodo_prueba.getG(), 100);
-    }*/
+    @Test(description ="Valores del nodo", dataProvider = "nodoPrueba")
+    void test_ValoresNodo(Nodo n){
+        //n.setG(100.1f);
+        Assert.assertEquals(n.getId(), 1);
+        Assert.assertEquals(n.getG(), 100);
+    }
 
     @AfterMethod
     public void afterMethod() {
