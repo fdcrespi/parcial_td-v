@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class GrafoDirigido {
+public class Camino {
 
 	HashMap<Nodo, ArrayList<Arco>> vertices = new HashMap<>();
 
@@ -76,4 +76,24 @@ public class GrafoDirigido {
 		return vertices.get(nodo).iterator();
 	}*/
 
+	/**
+	 * El camino con mayor energía resultante
+	 */
+	public Nodo[] getEcoPath(int nodo_i, int nodo_j) {
+		return null;
+	}
+
+	/**
+	 * El camino con mayor energía consumida
+	 */
+	public Nodo [] getWorstPath(int nodo_i, int nodo_j){
+		return null;
+	}
+
+	/*
+	* Energía remanente al final de un camino
+	* */
+	public float getEnergy(Nodo[] n){
+		return 0;
+	}
 }

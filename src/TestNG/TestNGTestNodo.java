@@ -1,6 +1,6 @@
 package TestNG;
 
-import Java.GrafoDirigido;
+import Java.Camino;
 import Java.Nodo;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -8,12 +8,12 @@ import org.testng.annotations.*;
 public class TestNGTestNodo {
 
     //@TODO Queda pendiente SUITE
-    static GrafoDirigido grafo_prueba;
+    static Camino grafo_prueba;
 
     @BeforeTest
     public void beforeTest(){
         System.out.println("TestNodo ==> Before Test");
-        grafo_prueba = new GrafoDirigido();
+        grafo_prueba = new Camino();
     }
 
     @BeforeClass
@@ -36,7 +36,7 @@ public class TestNGTestNodo {
     @DataProvider()
     public Object[][] grafoPrueba(){
         return new Object[][] {
-                new Object[] { new GrafoDirigido() }
+                new Object[] { new Camino() }
         };
     }
 

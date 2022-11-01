@@ -1,6 +1,6 @@
 package JUnit;
 
-import Java.GrafoDirigido;
+import Java.Camino;
 import Java.Nodo;
 import org.junit.jupiter.api.*;
 
@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class JunitTestNodo {
 
     static Nodo nodo_prueba;
-    static GrafoDirigido grafo_prueba;
+    static Camino camino_prueba;
 
     @BeforeAll
     static void initClass() throws Exception {
         System.out.println("TestNodo --> init Class");
         nodo_prueba = new Nodo(1, 100);
-        grafo_prueba = new GrafoDirigido();
+        camino_prueba = new Camino();
     }
 
     @BeforeEach
@@ -37,7 +37,7 @@ public class JunitTestNodo {
     @DisplayName(value = "Nodo repetido")
     void test_nodoRepetido(){
         //grafo_prueba.agregarVertice(nodo_prueba);
-        if (grafo_prueba.contieneVertice(nodo_prueba)){
+        if (camino_prueba.contieneVertice(nodo_prueba)){
             fail("El nodo esta repetido");
         }
     }

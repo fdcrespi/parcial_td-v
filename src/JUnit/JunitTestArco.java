@@ -2,26 +2,24 @@ package JUnit;
 
 import Exceptions.energiaNegativaException;
 import Java.Arco;
-import Java.GrafoDirigido;
+import Java.Camino;
 import Java.Nodo;
 import org.junit.jupiter.api.*;
 
-import java.util.List;
-
 public class JunitTestArco {
     static Arco arco_prueba;
-    static GrafoDirigido grafo;
+    static Camino camino;
 
     @BeforeAll
     static void initClass() throws energiaNegativaException {
         System.out.println("TestArco --> init class");
-        grafo = new GrafoDirigido();
+        camino = new Camino();
         Nodo nodo_i = new Nodo(1,100);
         Nodo nodo_j = new Nodo (5,25);
         arco_prueba = new Arco(nodo_i, nodo_j, 50);
-        grafo.agregarVertice(nodo_i);
-        grafo.agregarVertice(nodo_j);
-        grafo.agregarArco(arco_prueba);
+        camino.agregarVertice(nodo_i);
+        camino.agregarVertice(nodo_j);
+        camino.agregarArco(arco_prueba);
     }
 
     @BeforeEach
@@ -40,14 +38,14 @@ public class JunitTestArco {
     void test_arcoEnGrafo() {
         //grafo.borrarArco(arco_prueba);
         //grafo.borrarVertice(arco_prueba.getI());
-        Assertions.assertTrue(grafo.existeArco(arco_prueba));
+        Assertions.assertTrue(camino.existeArco(arco_prueba));
     }
 
     @Test
     @DisplayName(value="Existen vertices del arco")
     void test_existenVertices() {
-        Assertions.assertTrue(grafo.contieneVertice(arco_prueba.getI()));
-        Assertions.assertTrue(grafo.contieneVertice(arco_prueba.getJ()));
+        Assertions.assertTrue(camino.contieneVertice(arco_prueba.getI()));
+        Assertions.assertTrue(camino.contieneVertice(arco_prueba.getJ()));
     }
 
     @Test
@@ -77,12 +75,12 @@ public class JunitTestArco {
     void test_CambioExtremos() {
         Nodo nodo_prueba = new Nodo(4, 85);
         Arco original = arco_prueba;
-        grafo.agregarVertice(nodo_prueba);
-        grafo.borrarArco(original);
+        camino.agregarVertice(nodo_prueba);
+        camino.borrarArco(original);
         original.setExtremos(original.getI(), nodo_prueba, 80);
-        grafo.agregarArco(original);
+        camino.agregarArco(original);
         test_existenVertices();
-        Assertions.assertTrue(grafo.existeArco(original));
+        Assertions.assertTrue(camino.existeArco(original));
         Assertions.assertSame(original.getJ(), nodo_prueba);
     }
 
