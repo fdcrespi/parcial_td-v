@@ -82,6 +82,8 @@ public class JunitTestArco {
         test_existenVertices();
         Assertions.assertTrue(camino.existeArco(original));
         Assertions.assertSame(original.getJ(), nodo_prueba);
+        camino.borrarArco(original);
+        camino.agregarArco(arco_prueba);
     }
 
     @AfterEach
