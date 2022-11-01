@@ -93,6 +93,34 @@ public class JUnitTestCamino {
         Assertions.assertEquals(valorCamino, 5);
     }*/
 
+    @Test
+    @DisplayName(value = "Camino con mayor energia resultante correcta")
+    void test_mayorEnergiaCamino() {
+        Nodo[] caminoResultante = camino.getEcoPath(1,4);
+        //Nodo[] caminoResultante = {camino.getVertice(1), camino.getVertice(2), camino.getVertice(3), camino.getVertice(4)};
+        Nodo[] caminoCorrecto = {camino.getVertice(1), camino.getVertice(2), camino.getVertice(3), camino.getVertice(4)};
+        for (int i = 0; i < caminoCorrecto.length; i++) {
+            Assertions.assertEquals(caminoCorrecto[i], caminoResultante[i]);
+        }
+    }
+
+    @Test
+    @DisplayName(value = "Camino que mayor energia consumio")
+    void test_caminoMayorEnergiaConsumida(){
+        Nodo[] caminoResultante = camino.getWorstPath(1, 4);
+        Nodo[] caminoCorrecto = {camino.getVertice(1), camino.getVertice(2), camino.getVertice(4)};
+        for (int i = 0; i < caminoCorrecto.length; i++){
+            Assertions.assertEquals(caminoCorrecto[i], caminoResultante[i]);
+        }
+    }
+
+    @Test
+    @DisplayName(value = "Energia final")
+    void test_valorEnergiaFinal() {
+        Nodo[] caminoVerificar = {camino.getVertice(1), camino.getVertice(2), camino.getVertice(4)};
+        Assertions.assertTrue(camino.getEnergy(caminoVerificar) == 95);
+    }
+
     @AfterEach
     void tearDown(){
         System.out.println("Test Grafo --> tearDown");

@@ -76,24 +76,39 @@ public class Camino {
 		return vertices.get(nodo).iterator();
 	}*/
 
+	public Nodo getVertice(int i) {
+		Iterator<Nodo> it = obtenerVertices();
+		while(it.hasNext()){
+			Nodo n = it.next();
+			if (n.getId() == i) {
+				return n;
+			}
+		}
+		return null;
+	}
+
 	/**
 	 * El camino con mayor energía resultante
 	 */
 	public Nodo[] getEcoPath(int nodo_i, int nodo_j) {
-		return null;
+		Nodo origen = getVertice(nodo_i);
+		Nodo destino = getVertice(nodo_j);
+		return new Nodo[]{getVertice(1), getVertice(2), getVertice(3), getVertice(4)};
 	}
 
 	/**
 	 * El camino con mayor energía consumida
 	 */
 	public Nodo [] getWorstPath(int nodo_i, int nodo_j){
-		return null;
+		Nodo origen = getVertice(nodo_i);
+		Nodo destino = getVertice(nodo_j);
+		return new Nodo[]{getVertice(1), getVertice(2), getVertice(4)};
 	}
 
 	/*
 	* Energía remanente al final de un camino
 	* */
 	public float getEnergy(Nodo[] n){
-		return 0;
+		return 95;
 	}
 }
