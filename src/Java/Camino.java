@@ -37,15 +37,15 @@ public class Camino {
 	}
 
 	public void agregarArco(Arco arco) {
-		if (vertices.containsKey(arco.getI())){
-			vertices.get(arco.getI()).add(arco);
-		}
+		agregarVertice(arco.getI());
+		agregarVertice(arco.getJ());
+		vertices.get(arco.getI()).add(arco);
 	}
 
 	public void agregarArco(Nodo origen, Nodo destino, float energia) throws energiaNegativaException {
-		if (vertices.containsKey(origen)){
-			vertices.get(origen).add(new Arco(origen, destino, energia));
-		}
+		agregarVertice(origen);
+		agregarVertice(destino);
+		vertices.get(origen).add(new Arco(origen, destino, energia));
 	}
 
 	public void borrarArco(Arco arco) {

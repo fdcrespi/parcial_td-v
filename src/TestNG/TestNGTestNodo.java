@@ -10,6 +10,11 @@ public class TestNGTestNodo {
     //@TODO Queda pendiente SUITE
     static Camino grafo_prueba;
 
+    @BeforeSuite
+    public void beforeSuite(){
+        System.out.println("TestNodo ==> Before Suite");
+    }
+
     @BeforeTest
     public void beforeTest(){
         System.out.println("TestNodo ==> Before Test");
@@ -82,8 +87,13 @@ public class TestNGTestNodo {
         System.out.println("TestNodo ==> After Class");
     }
 
-   @AfterTest
-   public void afterTest() {
+    @AfterTest
+    public void afterTest() {
        System.out.println("TestNodo ==> After Test");
-   }
+    }
+
+    @AfterSuite
+    public void afterSuite() {
+        System.out.println("TestSuite ==> After Suite");
+    }
 }

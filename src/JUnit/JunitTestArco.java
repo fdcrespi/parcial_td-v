@@ -15,7 +15,7 @@ public class JunitTestArco {
         System.out.println("TestArco --> init class");
         camino = new Camino();
         Nodo nodo_i = new Nodo(1,100);
-        Nodo nodo_j = new Nodo (5,25);
+        Nodo nodo_j = new Nodo (2,25);
         arco_prueba = new Arco(nodo_i, nodo_j, 50);
         camino.agregarVertice(nodo_i);
         camino.agregarVertice(nodo_j);
